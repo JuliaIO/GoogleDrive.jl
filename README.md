@@ -16,7 +16,7 @@ The package can be installed by cloning git repo in .julia/dev/
 
 ## Details
 
-### `drive_download`
+### drive_download
 
     `drive_download(URL, localdir)`
 
@@ -24,13 +24,13 @@ The package can be installed by cloning git repo in .julia/dev/
 Download flie from Google drive.
 The above function only Download file from google drive.
 
-### `sheet_handler`
+### sheet_handler
     
     `sheet_handler(long_url)`
 
 Provide URL that can be use as link for registering in Datadeps
 
-### `google_download`
+### google_download
      
     `google_download(URL, localdir)`
     
