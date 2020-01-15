@@ -44,7 +44,7 @@ see the DataDeps.jl readme.
 Load the package with
 
 ```
-julia> using GooglrDrive
+julia> using GoogleDrive
 ```
 
 ### Loading different Embeddings
