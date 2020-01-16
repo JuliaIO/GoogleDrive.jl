@@ -12,7 +12,7 @@ DataDeps = "124859b0-ceae-595e-8997-d05f6a7a8dfe"
 
 [compat]
 julia = "1"
-HTTP = "^0.8.1"
+HTTP = "0.8.1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
