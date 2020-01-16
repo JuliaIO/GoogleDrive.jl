@@ -23,8 +23,8 @@ function unshortlink(url; kw...)
     url
 end
 
-isgooglesheet(url) = occursin("docs.google.com/spreadsheets", url)
-isgoogledrive(url) = occursin("drive.google.com", url)
+isg_sheet(url) = occursin("docs.google.com/spreadsheets", url)
+isg_drive(url) = occursin("drive.google.com", url)
 
 function sheet_handler(url; format=:csv)
     link, expo = splitdir(url)
@@ -38,11 +38,12 @@ end
 
 function google_download(url, localdir)
     long_url = unshortlink(url)
-    if isgooglesheet(long_url)
+    if isg_sheet(long_url)
+
         long_url = sheet_handler(long_url)
     end
 
-    if isgoogledrive(long_url)
+    if isg_drive(long_url)
         drive_download(long_url, localdir)
     else
         DataDeps.fetch_http(long_url, localdir)
