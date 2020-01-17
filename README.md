@@ -68,6 +68,4 @@ julia>google_download("https://docs.google.com/spreadsheets/d/1tbNIGxnp8wLk31DIM
 ### Reference 
 
 Code:-
-[Peter Cheng](https://github.com/chengchingwen/Transformers.jl) 
-
-[HTTPS](https://github.com/JuliaWeb/HTTP.jl)
+[Peter Cheng](https://github.com/chengchingwen/Transformers.jl) ,[HTTPS](https://github.com/JuliaWeb/HTTP.jl)
