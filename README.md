@@ -65,6 +65,14 @@ julia>google_download("https://docs.google.com/spreadsheets/d/1tbNIGxnp8wLk31DIM
 "/home/iamtejas/Downloads/InternshipsToApplyFor-Sheet1.csv"
 
 ```
+
+## Contributing and Reporting Bugs
+
+Contributions, in the form of bug-reports, pull requests, additional documentation are encouraged. They can be made to the Github repository.
+
+**All contributions and communications should abide by the [Julia Community Standards](https://julialang.org/community/standards/).**
+
+
 ### Reference 
 
 Code:-
