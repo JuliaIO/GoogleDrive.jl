@@ -8,9 +8,12 @@
 GoogleDrive.jl provides support for downloading files from Google-Drive on top of Datadeps.
 
 ### Installation
-The package can be installed by cloning git repo in .julia/dev/
+The package can be installed using the [julia package manager in the normal way.](https://julialang.github.io/Pkg.jl/v1/managing-packages/#Adding-packages-1).
+
+Open the REPL, press <kbd>]</kbd> to enter package mode, and then:
+
 ```julia
-~/.julia/dev> git clone <fork_repo_URL>
+pkg> add Googledrive
 ```
 
 
