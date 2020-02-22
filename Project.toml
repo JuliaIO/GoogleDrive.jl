@@ -15,7 +15,7 @@ Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 julia = "1"
 HTTP = "0.8.1"
 DataDeps = "0.5"
-Documenter = "0.11"
+Documenter = "0.24"
 
 
 [extras]
@@ -24,16 +24,3 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 [targets]
 test = ["Test"]
 
-import Documenter, Markdown
-m = match(r"^version = \"(\d+.\d+.\d+)(-DEV)?\"$"m,
-    read(joinpath(dirname(dirname(pathof(Documenter))), "Project.toml"), String))
-v = VersionNumber(m.captures[1])
-Markdown.parse("""
-```toml
-[deps]
-Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-
-[compat]
-Documenter = "$(v.major).$(v.minor)"
-```
-""")
