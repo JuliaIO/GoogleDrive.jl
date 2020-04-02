@@ -2,6 +2,8 @@
 
 
 [![Build Status](https://travis-ci.com/tejasvaidhyadev/GoogleDrive.jl.svg?branch=master)](https://travis-ci.org/tejasvaidhyadev/GoogleDrive.jl)
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://tejasvaidhyadev.github.io/GoogleDrive.jl/stable)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://tejasvaidhyadev.github.io/GoogleDrive.jl/dev)
 
 
 ## Introduction
