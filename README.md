@@ -2,9 +2,7 @@
 
 
 [![Build Status](https://travis-ci.com/tejasvaidhyadev/GoogleDrive.jl.svg?branch=master)](https://travis-ci.org/tejasvaidhyadev/)
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://tejasvaidhyadev.github.io/GoogleDrive.jl/stable)
-[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://tejasvaidhyadev.github.io/GoogleDrive.jl/dev)
-
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://tejasvaidhyadev.github.io/GoogleDrive.jl/)
 
 ## Introduction
 GoogleDrive.jl provides support for downloading files from Google-Drive on top of Datadeps.
