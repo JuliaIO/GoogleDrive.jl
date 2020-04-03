@@ -14,6 +14,9 @@ makedocs(
 
 deploydocs(repo = "github.com/tejasvaidhyadev/GoogleDrive.jl.git",
            target = "build",
+           branch = "gh-pages",
+           latest = "mater",
+           osname = "linux"
     push_preview = true,
 )
 
