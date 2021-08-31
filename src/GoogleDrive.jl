@@ -62,7 +62,9 @@ end
 
 
 function drive_download(url, localdir)
-    ckjar = copy(HTTP.CookieRequest.default_cookiejar)
+    default_ckjar = HTTP.CookieRequest.default_cookiejar
+    # On newer version of HTTP.jl default_ckjar is an Array with one per thread
+    ckjar = copy(default_ckjar isa Array ? default_ckjar[Base.Threads.threadid()] : default_ckjar)
     rq = HTTP.request("HEAD", url; cookies=true, cookiejar=ckjar)
     ckj = ckjar["drive.google.com"]
     gcode = find_gcode(ckj)
