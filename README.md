@@ -13,7 +13,7 @@ The package can be installed using the [julia package manager in the normal way.
 Open the REPL, press <kbd>]</kbd> to enter package mode, and then:
 
 ```julia
-pkg> add Googledrive
+pkg> add GoogleDrive
 ```
 
 
