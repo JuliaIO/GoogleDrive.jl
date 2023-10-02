@@ -18,18 +18,11 @@ to the form needed for raw data download:
 `https://docs.google.com/uc?export=download&id=XYZ`
 "
 function google_download_url(url::AbstractString)
-    head = "https://drive.google.com/file/d/"
-    nhead = length(head)
-    prefix = "https://docs.google.com/uc?export=download&id="
-    nprefix = length(prefix)
-
-    if (length(url) ≥ nhead) && (url[1:nhead] == head)
-        url = prefix * url[(length(head)+1):end]
-    elseif (length(url) < nprefix) || (url[1:nprefix] != prefix)
+    old = "https://drive.google.com/file/d/"
+    new = "https://docs.google.com/uc?export=download&id="
+    startswith(url, old) || startswith(url, new) ||
         throw(ArgumentError("Unknown URL form $url"))
-    end
-
-    return url
+    return replace(url, old => new)
 end
 
 
