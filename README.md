@@ -10,8 +10,6 @@ https://github.com/JuliaIO/GoogleDrive.jl
 [![docs-stable][docs-stable-img]][docs-stable-url]
 [![docs-dev][docs-dev-img]][docs-dev-url]
 
-[![Build Status](https://travis-ci.com/JuliaIO/GoogleDrive.jl.svg?branch=master)](https://travis-ci.org/JuliaIO/GoogleDrive.jl/)
-
 
 ## Introduction
 
