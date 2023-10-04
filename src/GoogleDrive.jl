@@ -1,7 +1,7 @@
 module GoogleDrive
 
 using DataDeps
-using Dates
+using Dates: now, Millisecond
 using Downloads: download
 using Random: randstring
 using HTTP
