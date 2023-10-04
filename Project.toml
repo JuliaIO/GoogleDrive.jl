@@ -1,7 +1,7 @@
 name = "GoogleDrive"
 uuid = "91feb7a0-3508-11ea-1e8e-afea2c1c9a19"
 authors = ["tejasvaidhyadev <iamtejasvaidhya@gmail.com> and contributors"]
-version = "0.2"
+version = "0.1.2"
 
 [deps]
 DataDeps = "124859b0-ceae-595e-8997-d05f6a7a8dfe"
