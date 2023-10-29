@@ -10,8 +10,8 @@ Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
-
 [compat]
-julia = "1.9"
 DataDeps = "0.7.10"
+Downloads = "1"
 HTTP = "1.4.0"
+julia = "1.9"
