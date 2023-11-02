@@ -1,10 +1,6 @@
 module GoogleDrive
 
-using DataDeps
-using Dates: now, Millisecond
 using Downloads: download
-using Random: randstring
-using HTTP
 
 export google_download
 
