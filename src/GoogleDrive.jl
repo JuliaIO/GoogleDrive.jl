@@ -36,7 +36,7 @@ to the form needed for raw data download:
 `https://docs.google.com/uc?export=download&id=XYZ`
 "
 function drive_download_url(url::AbstractString)
-    full_url = s"https://drive.google.com/uc?export=download&id=\1"
+    full_url = s"https://docs.google.com/uc?export=download&id=\1"
     return replace(url, _drive_pattern => full_url)
 end
 
