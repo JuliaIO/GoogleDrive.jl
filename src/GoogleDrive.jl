@@ -28,18 +28,25 @@ is_sheet_url(url) = occursin("docs.google.com/spreadsheets", url)
 const _drive_pattern = r"^https?:\/\/drive\.google\.com\/file\/d\/([^\/]*).*"
 is_drive_url(url) = occursin(_drive_pattern, url) || occursin("docs.google.com/uc", url)
 
-"
+"""
     drive_download_url(url::AbstractString)::String
 Convert a GoogleDrive URL of the form
 `https://drive.google.com/file/d/XYZ`
 to the form needed for raw data download:
 `https://docs.google.com/uc?export=download&id=XYZ`
-"
+"""
 function drive_download_url(url::AbstractString)
     full_url = s"https://docs.google.com/uc?export=download&id=\1"
     return replace(url, _drive_pattern => full_url)
 end
 
+"""
+    sheet_download_url(url::AbstractString, format)::String
+Convert a Google Sheets URL of the form
+`https://docs.google.com/spreadsheets/d/XYZ/edit`
+to the form needed for raw data download:
+`https://docs.google.com/spreadsheets/d/XYZ/export?format=FORMAT`
+"""
 function sheet_download_url(url::AbstractString, format="csv")
     link, action = splitdir(url)
     if !startswith(action, "export")
