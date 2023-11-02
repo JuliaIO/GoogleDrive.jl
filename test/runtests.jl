@@ -1,14 +1,13 @@
-using GoogleDrive: google_download, google_download_url
-#using Downloads: download
+using GoogleDrive: google_download, drive_download_url
 using Test
 
 @testset "GoogleDrive.jl" begin
 
     src = "https://drive.google.com/file/d/XYZ"
     dst = "https://docs.google.com/uc?export=download&id=XYZ"
-    @test google_download_url(src) == dst
-    @test google_download_url(dst) == dst
-    @test_throws ArgumentError google_download_url("foo")
+    @test drive_download_url(src) == dst
+    @test drive_download_url(dst) == dst
+    @test_throws ArgumentError google_download("foo", IOBuffer())
 
     #=
     The following test reads a small Julia file from GoogleDrive.
