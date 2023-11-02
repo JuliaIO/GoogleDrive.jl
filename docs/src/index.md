@@ -6,8 +6,7 @@
 ```
 ## Preface
 
-This manual is designed to get you started using GoogleDrive.jl Package in julia in Julia.
-It assumes that you already familiar with the basic of [datadeps](https://white.ucc.asn.au/DataDeps.jl/stable/index.html).
+This manual is designed to get you started using GoogleDrive.jl Package in Julia.
 
 ## Installation
 
