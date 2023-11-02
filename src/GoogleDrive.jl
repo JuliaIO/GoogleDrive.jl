@@ -6,26 +6,7 @@ using Downloads: download
 using Random: randstring
 using HTTP
 
-export drive_download
-export sheet_handler
 export google_download
-
-
-"
-    google_download_url(url::AbstractString)::String
-Convert a GoogleDrive URL of the form
-`https://drive.google.com/file/d/XYZ`
-to the form needed for raw data download:
-`https://docs.google.com/uc?export=download&id=XYZ`
-"
-function google_download_url(url::AbstractString)
-    old = "https://drive.google.com/file/d/"
-    new = "https://docs.google.com/uc?export=download&id="
-    startswith(url, old) || startswith(url, new) ||
-        throw(ArgumentError("Unknown URL form $url"))
-    return replace(url, old => new)
-end
-
 
 """
     google_download(url::AbstractString, io::IO)
@@ -36,36 +17,39 @@ but `Downloads.download` also mutates an `IO` argument
 so we follow its convention.
 """
 function google_download(url::AbstractString, io::IO)
-    url = google_download_url(url)
+    if is_drive_url(url)
+        url = drive_download_url(url)
+    elseif is_sheet_url(url)
+        url = sheet_download_url(url)
+    else
+        throw(ArgumentError("Unknown URL form $url"))
+    end
     return download(url, io)
 end
 
+is_sheet_url(url) = occursin("docs.google.com/spreadsheets", url)
 
-"""
-    unshortlink(url)
-return unshorten url or the url if it is not a short link
-"""
-function unshortlink(url; kw...)
-    rq = HTTP.request("HEAD", url; redirect=false, status_exception=false, kw...)
-    while rq.status ÷ 100 == 3
-        url = HTTP.header(rq, "Location")
-        rq = HTTP.request("HEAD", url; redirect=false, status_exception=false, kw...)
-    end
-    url
+const _drive_pattern = r"^https?:\/\/drive\.google\.com\/file\/d\/([^\/]*).*"
+is_drive_url(url) = occursin(_drive_pattern, url) || occursin("docs.google.com/uc", url)
+
+"
+    drive_download_url(url::AbstractString)::String
+Convert a GoogleDrive URL of the form
+`https://drive.google.com/file/d/XYZ`
+to the form needed for raw data download:
+`https://docs.google.com/uc?export=download&id=XYZ`
+"
+function drive_download_url(url::AbstractString)
+    full_url = s"https://drive.google.com/uc?export=download&id=\1"
+    return replace(url, _drive_pattern => full_url)
 end
 
-
-isg_sheet(url) = occursin("docs.google.com/spreadsheets", url)
-isg_drive(url) = occursin("drive.google.com", url)
-
-function sheet_handler(url; format=:csv)
-    link, expo = splitdir(url)
-    if startswith(expo, "edit") || expo == ""
+function sheet_download_url(url::AbstractString, format="csv")
+    link, action = splitdir(url)
+    if !startswith(action, "export")
         url = link * "/export?format=$format"
-    elseif startswith(expo, "export")
-        url = replace(url, r"format=([a-zA-Z]*)(.*)"=>SubstitutionString("format=$format\\2"))
     end
-    url
+    return url
 end
 
 end # Module
