@@ -13,11 +13,7 @@ https://github.com/JuliaIO/GoogleDrive.jl
 
 ## Introduction
 
-GoogleDrive.jl provides support for downloading files from Google Drive,
-directly as an IO stream,
-or on top of
-[DataDeps.jl](https://github.com/oxinabox/DataDeps.jl).
-
+GoogleDrive.jl provides support for downloading files from Google Drive and Google Sheets.
 
 ### Installation
 Install the package using the
@@ -32,9 +28,6 @@ pkg> add GoogleDrive
 
 ## Details
 
-Some of the methods in this package
-may no longer be needed
-because of changes to Google Drive API.
 
 To download data into an IO stream from a special URL of the form
 `url = "https://docs.google.com/uc?export=download&id=1GqmszfSB_LHGQEQpSjoiPyDROZ5a8Ls4"`,
