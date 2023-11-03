@@ -4,14 +4,13 @@
 
 `google_download(URL, IO)`
 
-Download flie from Google Drive or Google Sheets.
-The above function only Download file from google drive.
+Download a file from Google Drive or Google Sheets.
 
 #### Example
 
-Downloading CSV file from Drive using google_download function
+Downloading a ZIP file from Drive using the `google_download` function
 ```
-julia> google_download("https://drive.google.com/file/d/0B9w48e1rj-MOLVdZRzFfTlNsem8/view", open("file.csv", "w"))
-"/home/iamtejas/Downloads/file.csv"
+julia> google_download("https://drive.google.com/file/d/0B9w48e1rj-MOLVdZRzFfTlNsem8/view", open("file.zip", "w"))
+"/home/iamtejas/Downloads/file.zip"
 
 ```
