@@ -2,7 +2,7 @@ module GoogleDrive
 
 using Downloads: download
 
-export google_download
+export google_download, google_download_url
 
 """
     google_download(url::AbstractString, io::IO)
@@ -13,6 +13,17 @@ but `Downloads.download` also mutates an `IO` argument
 so we follow its convention.
 """
 function google_download(url::AbstractString, io::IO)
+    url = google_download_url(url)
+    return download(url, io)
+end
+
+"""
+    google_download_url(url::AbstractString)
+Convert a direct Google Drive/Sheets URL to a direct download
+URL. The resulting URL can be used with `Downloads`, `DataDeps`
+or any other data fetching package.
+"""
+function google_download_url(url::AbstractString)
     if is_drive_url(url)
         url = drive_download_url(url)
     elseif is_sheet_url(url)
@@ -20,7 +31,6 @@ function google_download(url::AbstractString, io::IO)
     else
         throw(ArgumentError("Unknown URL form $url"))
     end
-    return download(url, io)
 end
 
 is_sheet_url(url) = occursin("docs.google.com/spreadsheets", url)
