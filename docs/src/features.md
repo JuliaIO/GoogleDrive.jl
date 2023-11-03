@@ -10,7 +10,7 @@ Download a file from Google Drive or Google Sheets.
 
 Downloading a ZIP file from Drive using the `google_download` function
 ```
-julia> google_download("https://drive.google.com/file/d/0B9w48e1rj-MOLVdZRzFfTlNsem8/view", open("file.zip", "w"))
+julia> google_download("https://drive.google.com/file/d/0B9w48e1rj-MOLVdZRzFfTlNsem8/view", "file.zip")
 "/home/iamtejas/Downloads/file.zip"
 ```
 

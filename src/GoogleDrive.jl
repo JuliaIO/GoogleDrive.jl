@@ -1,20 +1,20 @@
 module GoogleDrive
 
+using Base: AbstractCmd
 using Downloads: download
 
 export google_download, google_download_url
 
 """
-    google_download(url::AbstractString, io::IO)
-Download data from Google URL `url` into `io`, returning `io`.
+    google_download(url::AbstractString, location::Union{AbstractString,AbstractCmd,IO})
+Download data from Google URL `url` into `location`, returning `location`.
 
-This mutates `io` so arguably it should be named `google_download!`,
-but `Downloads.download` also mutates an `IO` argument
-so we follow its convention.
+`location` can be of any type that `Downloads.download` accepts - so a file
+path, a command, or an IO buffer.
 """
-function google_download(url::AbstractString, io::IO)
+function google_download(url::AbstractString, location::Union{AbstractString,AbstractCmd,IO})
     url = google_download_url(url)
-    return download(url, io)
+    return download(url, location)
 end
 
 """
